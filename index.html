@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Crowdfunding product page - Frontend Mentor">
+    <meta name="keywords" content="Crowdfunding product page, Frontend Mentor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/BB_favicon.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <title>Bharat Bhraman</title>
+</head>
+
+<body>
+    <header class="head">
+
+        <nav class="menu">
+        </nav>
+        <nav class="hambruger-navigation">
+            <div class="hamburger-menu"></div>
+        </nav>
+
+        <div class="menu-background"></div>
+    </header>
+    <main>
+
+        <article class="project-header">
+
+            <a href="https://catherineisonline.github.io/crowdfunding-product-page-frontendmentor/"><img
+                    src="images/BB.svg"  alt="project-logo" class="project-logo"></a>
+            <section class="intro">
+
+                <section class="intro-info">
+
+                    <h1>Bharat Bhraman</h1>
+                    <p>A  land of <b>Timeless Traditions</b></p>
+                </section>
+                <section class="action-btn">
+
+                    <a href="#project-type"><button type="button" class="back-btn">Your Reviews</button></a>
+                    <section class="bookmark"> 
+                    </section>
+                </section>
+            </section>
+        </article>
+        <article class="project-description">
+
+
+            <section class="projects-info">
+                <h2>About this initiative</h2>
+                <p>
+                    At Bharat Bhraman, we are passionately dedicated to preserving the invaluable treasures of Indian cultural heritage. Our initiative serves as a steadfast guardian of the diverse tapestry of traditions, arts, and stories that define our nation's identity. Through grassroots efforts and the power of crowdfunding, we empower individuals to contribute directly to the protection and promotion of our cultural legacy. Join us in our commitment to safeguarding India's rich heritage, ensuring that it continues to inspire, educate, and unite us for generations to come.
+                </p>
+            </section>
+            <!-- Photos,videos and all -->
+            <section class="project-types" id="project-type">
+
+                <section class="item">
+
+                    <section class="item-header">
+                        <h2 class="h2">Please Post Your Reviews Below</h2>
+                    </section>
+                    <section class="wrapper">
+                        <form id="fileForm" enctype="multipart/form-data">
+                            <input type="file" name="file" id="fileInput">
+                            <button type="button" class="Button" onclick="uploadFile()">Upload File</button>
+                          </form>
+                    </section>
+                </section>
+                <!-- writing reviews -->
+                <section class="item">
+
+                    <section class="item-header">
+                        <h2 class="h2">Write a Review</h2>
+                    </section>
+                    <section class="wrapper">
+                        <form id="reviewForm">
+                          <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                          <button type="button" class="Button" onclick="submitReview()">Post Review</button>
+                        </form>
+                    </section>
+                </section>
+
+
+            </section>
+        </article>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
