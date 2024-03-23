@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Crowdfunding product page - Frontend Mentor">
+    <meta name="keywords" content="Crowdfunding product page, Frontend Mentor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/BB_favicon.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <title>Bharat Bhraman</title>
+</head>
+<style>
+   @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+:root {
+  --moderate-cyan: hsl(210, 78%, 46%);
+  --dark-cyan: hsl(210, 63%, 72%);
+  --black: hsl(0, 0%, 0%);
+  --dark-gray: hsl(0, 0%, 48%);
+  --white: rgb(255, 255, 255);
+  --gray: rgb(250, 250, 250);
+  --light-gray: rgb(232, 232, 232);
+  --body-font: "Commissioner", sans-serif;
+  --svg-gray: rgba(112, 112, 112, 255);
+}
+
+b{
+color:hsl(210, 78%, 46%);
+font-style:italic;
+}
+html {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  position: relative;
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: 16px;
+  background-color: var(--gray);
+  color: var(--dark-gray);
+}
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  color: var(--black);
+}
+.description {
+  line-height: 1.7em;
+}
+header {
+  background-image: url("../images/Flag-Desktop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25rem;
+  background-position: top;
+}
+
+.hamburger-menu,
+.logo-hambruger {
+  display: none;
+}
+
+/* Menu */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  width: 77%;
+  margin: 0 auto;
+}
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2.1rem;
+  list-style: none;
+}
+.menu ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.project-header,
+.stats,
+.project-description,
+.modal-content,
+.modal-success {
+  width: 44%;
+  margin: auto;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 2rem 3rem;
+  margin: 2rem auto;
+  position: relative;
+}
+.project-header {
+  margin-top: -6.5%;
+  border: 1px solid var(--light-gray);
+}
+.project-header .project-logo {
+  position: absolute;
+  top: -27px;
+  height: 70px;
+  width: 70px;
+  border-radius: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.2rem;
+  padding-top: 1.8rem;
+}
+.intro-info {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+}
+h1 {
+  font-size: 1.75em;
+  margin: 0;
+}
+
+/* Action Buttons */
+.action-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.back-btn {
+  padding: 1.2rem 2.5rem;
+  border-radius: 30px;
+  background-color: var(--moderate-cyan);
+  color: var(--white);
+  cursor: pointer;
+  position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+  border: none;
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.bookmark {
+  position: relative;
+  cursor: pointer;
+  height: 56px;
+}
+/* Bookmark button */
+.bookmark button {
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  position: relative;
+  padding: 0 2rem;
+  font-weight: var(--body-font);
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-size: 1rem;
+  height: 56px;
+  color: var(--dark-gray);
+}
+
+.bookmark svg {
+  position: absolute;
+  left: -21%;
+  top: 0;
+}
+
+.bookmark.bookmarked button {
+  color: var(--dark-cyan);
+}
+.bookmark.bookmarked svg circle {
+  fill: var(--dark-cyan);
+}
+.bookmark.bookmarked svg path {
+  fill: var(--white);
+}
+/* Stats */
+.stats {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--light-gray);
+  margin-top: -1rem;
+}
+.stats-numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding-top: 0.8rem;
+  padding-left: 0.2rem;
+}
+.stat {
+  position: relative;
+}
+.stat::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 1.25rem);
+  bottom: 0;
+  height: 100%;
+  border-right: 1px solid var(--light-gray);
+}
+.stats-numbers .stat:last-child:after {
+  border: none;
+}
+.stat {
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+.stats-numbers .stat span {
+  font-weight: 700;
+  font-size: 2em;
+  color: var(--black);
+  /* letter-spacing: 1px; */
+}
+.stats .progress {
+  border-radius: 0.75rem;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0;
+  outline: none;
+  pointer-events: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 0.75rem;
+  background: linear-gradient(
+    to right,
+    var(--moderate-cyan) 0,
+    var(--moderate-cyan) 80%,
+    var(--light-gray) 80%,
+    var(--light-gray) 100%
+  );
+}
+.stats .progress::-webkit-slider-thumb {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--moderate-cyan);
+}
+
+/* Project Description */
+.project-description {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--light-gray);
+  margin-top: -0.8rem;
+  gap: 1.6rem;
+}
+.projects-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.projects-info p {
+  line-height: 1.7rem;
+}
+.projects-info h2 {
+  font-size: 1.25em;
+}
+.project-types {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+.project-types h3 {
+  font-size: 1.25em;
+}
+
+/* Project Item */
+.item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding-top: 1.05rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border: 2px solid black;
+}
+.item-header {
+  border-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.item-header h3 {
+  font-size: 1.11rem;
+}
+
+.item-header p {
+  font-weight: 500;
+  color: var(--moderate-cyan);
+  font-size: 0.9rem;
+}
+.item-description {
+  margin-top: 0.8rem;
+  line-height: 1.6rem;
+}
+.item .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.capacity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.capacity span {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--black);
+}
+.select-reward {
+  padding: 1rem 2.1rem;
+  border-radius: 2rem;
+  background-color: var(--moderate-cyan);
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: var(--body-font);
+}
+
+.project-description .project-types .item.out-of-stock {
+  opacity: 0.5;
+}
+
+.out-of-stock .select-reward {
+  background-color: var(--dark-gray);
+  padding: 1rem 2.5rem;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+  display: none;
+}
+.show-modal .modal {
+  display: block;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  height: 100%;
+}
+.modal-content {
+  position: absolute;
+  top: 7.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.completed .modal-content {
+  display: none;
+}
+.modal-content .item {
+  padding: 1.5rem;
+}
+.modal-content .item.out-of-stock {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.modal-content .item.item-selected {
+  border: 2px solid;
+  border-color: var(--moderate-cyan);
+}
+.modal-content .item .info {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 1rem;
+}
+.type-selection {
+  grid-area: 1/1 / span 2/1;
+  width: 25px;
+  height: 25px;
+  margin: 0;
+  cursor: pointer;
+}
+.info .item-header .capacity span {
+  font-size: 1.1em;
+}
+.info .item-header > * {
+  margin: 0;
+}
+
+.pledge {
+  display: none;
+}
+
+.pledge form {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+}
+
+.item.item-selected .pledge {
+  border-top: 1px solid var(--white);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  gap: 10px;
+  border: 1px solid var(--light-gray);
+  padding: 0.9rem 1.2rem;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.container label {
+  font-weight: 700;
+  color: var(--dark-gray);
+  margin-bottom: 3px;
+  font-size: 0.85em;
+}
+.pledge-input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  margin: 0;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--black);
+  width: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.pledge-input::-webkit-outer-spin-button,
+.pledge-input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.cta-continue {
+  background-color: var(--moderate-cyan);
+  padding: 0.9rem 1.2rem;
+  border-radius: 40px;
+  outline: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.close-modal {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+}
+.modal-success {
+  display: none;
+}
+.completed .modal-success {
+  display: block;
+  position: absolute;
+  top: 33.5%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  max-width: 32%;
+  padding: 2.8rem 2.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.modal-success img {
+  width: 5.5rem;
+}
+
+.modal-success h4 {
+  font-size: 1.5rem;
+}
+.got-it {
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  background-color: var(--moderate-cyan);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.got-it,
+.cta-continue,
+.container,
+.info .item-header h3,
+.select-reward,
+.bookmark svg circle,
+.back-btn {
+  transition: all ease-in 0.2s;
+  margin: 0% auto;
+}
+@media (hover: hover) {
+  .got-it:hover,
+  .cta-continue:hover,
+  .container:hover,
+  .info .item-header h3:hover,
+  .select-reward:hover,
+  .bookmark:hover svg circle,
+  .back-btn:hover {
+    transition: all ease-in 0.2s;
+  }
+
+  .got-it:hover {
+    background-color: var(--dark-cyan);
+  }
+  .cta-continue:hover {
+    background-color: var(--dark-cyan);
+  }
+  .container:hover {
+    border-color: var(--moderate-cyan);
+  }
+  .info .item-header h3:hover {
+    color: var(--moderate-cyan);
+    cursor: pointer;
+  }
+  .select-reward:hover {
+    background-color: var(--dark-cyan);
+  }
+  #reward-3:hover {
+    background-color: var(--dark-gray);
+  }
+  .bookmark:hover svg circle {
+    fill: var(--svg-gray);
+  }
+  .back-btn:hover {
+    background-color: var(--dark-cyan);
+  }
+}
+
+
+/* options */
+.options{
+  background-color:hsl(210, 78%, 46%);
+  border-radius: 20px;
+  outline: none;
+  padding: 0.4rem 0.2rem;
+  border: none;
+  margin:10px 3.2px;
+  padding: 3px;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* customer reviws */
+.wrapper{
+  display: flex;
+  width: 100%;
+  background-color:hsl(210, 78%, 46%);
+  border-color: hsl(289, 81%, 19%);
+  border-radius: 10px;
+  outline: none;
+  padding: 4px;
+  border: none;
+  margin:10px 3.2px;
+  color: black;
+  cursor: pointer;
+  border-color: red;
+  font-weight: 700;
+
+}
+.wrapper2{
+  display: flex;
+  width: 50%;
+  background-color:hsl(210, 78%, 46%);
+  border-color: hsl(289, 81%, 19%);
+  border-radius: 10px;
+  outline: none;
+  padding: 4px;
+  border: none;
+  margin:10px 3.2px;
+  color: black;
+  cursor: pointer;
+  border-color: red;
+  font-weight: 700;
+
+}
+
+
+.Button{
+  display: flex;
+  background-color:hsl(210, 81%, 19%);
+  border-radius: 5px;
+  border-color: black;
+  outline: none;
+  padding: 0.4rem 0.2rem;
+  border: none;
+  padding: 3.2px 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+.h2{
+  color: hsl(210, 84%, 27%);
+  padding: -10px;
+}
+
+#reviewForm{
+  width: 100%;
+  padding: 8px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+#fileForm{
+  padding: 8px ;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#reviewText{
+  border-radius: 10px;
+  padding: 6px ;
+  font-size: 15px;
+}
+
+#fileInput {
+  border-radius: 10px;
+  padding: 6px ;
+  font-size: 15px;
+
+}
+
+/* table */
+.toggleTableBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+} 
+
+table {
+        border-collapse: collapse;
+        color:black;
+        width: 100%;
+        background-color: transparent;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #333;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: transparent;
+    }
+    tr:nth-child(odd) {
+        background-color: transparent;
+    }
+</style>
+
+<body>
+    <header class="head">
+        <!-- <nav class="menu">
+            <a href="Table.html"><button class="toggleTableBtn">Table</button></a>
+        </nav> -->
+        <nav class="hambruger-navigation">
+            <div class="hamburger-menu"></div>
+        </nav>
+        <div class="menu-background"></div>
+    </header>
+    <main>
+
+        <article class="project-header">
+
+            <a href="https://catherineisonline.github.io/crowdfunding-product-page-frontendmentor/"><img
+                    src="images/BB.svg"  alt="project-logo" class="project-logo"></a>
+            <section class="intro">
+
+                <section class="intro-info">
+
+                    <h1>Bharat Bhraman</h1>
+                    <p>A  land of <b>Timeless Traditions</b></p>
+                </section>
+            </section>
+        </article>
+        <article class="project-description">
+
+
+            <section class="projects-info">
+                <h2>About this initiative</h2>
+                <p>
+                    At Bharat Bhraman, we are passionately dedicated to preserving the invaluable treasures of Indian cultural heritage. Our initiative serves as a steadfast guardian of the diverse tapestry of traditions, arts, and stories that define our nation's identity. Through grassroots efforts and the power of crowdfunding, we empower individuals to contribute directly to the protection and promotion of our cultural legacy. Join us in our commitment to safeguarding India's rich heritage, ensuring that it continues to inspire, educate, and unite us for generations to come.
+                </p>
+            </section>
+            <!-- Photos,videos and all -->
+            <section class="project-types" id="project-type">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Heritage Name</th>
+                            <th>Heritage ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ajanta Fort</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Ellora Fort</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>Agra Fort</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Taj Mahal</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>Konarak Sun Temple</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Group of Monuments at Mahabalipuram</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Kaziranga National Park</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Manas Wildlife Sanctuary</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Keoladeo National Park</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>Churches and Convents of Goa</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Khajuraho Group of Monuments</td>
+                            <td>11</td>
+                        </tr>
+                        <tr>
+                            <td>Group of Monuments at Hampi</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Fatehpur Sikri</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>Group of Monuments at Pattadakal</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>Elephanta Caves</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>Great Living Chola Temples</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>Sundarbans National Park</td>
+                            <td>17</td>
+                        </tr>
+                        <tr>
+                            <td>Nanda Devi and Valley of Flowers National Parks</td>
+                            <td>18</td>
+                        </tr>
+                        <tr>
+                            <td>Buddhist Monuments at Sanchi</td>
+                            <td>19</td>
+                        </tr>
+                        <tr>
+                            <td>Humayun's Tomb</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Qutb Minar and its Monuments</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>Mountain Railways of India</td>
+                            <td>22</td>
+                        </tr>
+                        <tr>
+                            <td>Mahabodhi Temple Complex at Bodh Gaya</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>Rock Shelters of Bhimbetka</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>Chhatrapati Shivaji Terminus (formerly Victoria Terminus)</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>Champaner-Pavagadh Archaeological Park</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>Red Fort Complex</td>
+                            <td>27</td>
+                        </tr>
+                        <tr>
+                            <td>The Jantar Mantar</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>Western Ghats</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>Hill Forts of Rajasthan</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Rani ki vav (The Queen's Stepwell)/td>
+                            <td>31</td>
+                        </tr>
+                        <tr>
+                            <td>Great Himalayan National Park</td>
+                            <td>32</td>
+                        </tr>
+                        <tr>
+                            <td>Archaeological Site of Nalanda Mahavihara at Nalanda</td>
+                            <td>33</td>
+                        </tr>
+                        <tr>
+                            <td>Khangchendzonga National Park</td>
+                            <td>34s</td>
+                        </tr>
+                        <tr>
+                            <td>The Architectural Work Of Le Corbusier</td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>Historic City of Ahmedabad</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>The Victorian and Art Deco Ensemble of Mumbai</td>
+                            <td>37</td>
+                        </tr>
+                        <tr>
+                            <td>Jaipur</td>
+                            <td>38</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </article>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
