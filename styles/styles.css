@@ -44,7 +44,7 @@ h4 {
   line-height: 1.7em;
 }
 header {
-  background-image: url("../images/Flag-Desktop.webp");
+  background-image: url("../images/Flag-Desktop.png");
   background-repeat: no-repeat;
   background-size: cover;
   height: 25rem;
@@ -612,6 +612,7 @@ h1 {
 
 }
 
+
 .Button{
   display: flex;
   background-color:hsl(210, 81%, 19%);
@@ -658,4 +659,15 @@ h1 {
   padding: 6px ;
   font-size: 15px;
 
+}
+
+/* table */
+.toggleTableBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
 }
