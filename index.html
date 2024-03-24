@@ -10,6 +10,65 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/responsive.css">
     <title>Bharat Bhraman</title>
+    <style>
+         body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.item-header {
+    margin-bottom: 20px;
+}
+
+.item-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#reviewText {
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.Button,
+.Button2 {
+    background-color: #0c2a4b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Button:hover,
+.Button2:hover {
+    background-color: #285585;
+}
+
+        
+    </style>
 </head>
 
 <body>
@@ -59,9 +118,9 @@
                     <section class="item-header">
                         <h2 class="h2">Enter Heritage ID(refer table for ID)</h2>
                     </section>
-                    <section class="wrapper2">
+                    <section class="wrapper">
                         <form id="reviewForm">
-                          <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                          <textarea id="reviewText" placeholder="Write here..."></textarea>
                           <button type="button" class="Button" onclick="submitReview()">Enter </button>
                         </form>
                     </section>
@@ -76,7 +135,7 @@
                     <section class="wrapper">
                         <form id="fileForm" enctype="multipart/form-data">
                             <input type="file" name="file" id="fileInput">
-                            <button type="button" class="Button" onclick="uploadFile()">Upload File</button>
+                            <button type="button" class="Button2" onclick="uploadFile()">Upload File</button>
                           </form>
                     </section>
                 </section>
@@ -88,7 +147,7 @@
                     </section>
                     <section class="wrapper">
                         <form id="reviewForm">
-                          <textarea id="reviewText" placeholder="Write your review here"></textarea>
+                          <textarea id="reviewText" placeholder="Write here..."></textarea>
                           <button type="button" class="Button" onclick="submitReview()">Post Review</button>
                         </form>
                     </section>
