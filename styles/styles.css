@@ -272,6 +272,12 @@ h1 {
   flex-direction: column;
   gap: 1.7rem;
 }
+
+.project-types > *{
+  width: 100%;
+}
+
+
 .project-types h3 {
   font-size: 1.25em;
 }
@@ -633,20 +639,20 @@ h1 {
 }
 
 #reviewForm{
-  width: 100%;
   padding: 8px ;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   
 }
 
 #fileForm{
   padding: 8px ;
-  width:100%;
   display:flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 #reviewText{
   border-radius: 10px;
